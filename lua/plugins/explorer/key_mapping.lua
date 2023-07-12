@@ -6,7 +6,7 @@ local M = {}
 
 M.keymap = {
   ["o"] = {
-    "toggle_node",
+    "open",
     nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
   },
   ["<Tab>"] = { "toggle_preview", config = { use_float = false } },
