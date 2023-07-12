@@ -19,7 +19,7 @@ return {
       telescope.load_extension("attempt")
     end,
     keys = {
-      { "<leader>va", desc = "Attemp" },
+      { "<leader>va", desc = "+Attemp" },
       {
         "<leader>van",
         function()
@@ -35,11 +35,11 @@ return {
         desc = "New(ext)... ",
       },
       {
-        "<leader>va!",
+        "<leader>vax",
         function()
           require("attempt").run()
         end,
-        desc = "Run...",
+        desc = "eXecute...",
       },
       {
         "<leader>vad",
