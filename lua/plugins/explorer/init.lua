@@ -1,4 +1,3 @@
-print("in the explorer plugin")
 -- we overwrite behavior of neotree plugin here
 return {
   {
