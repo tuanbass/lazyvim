@@ -48,14 +48,8 @@ return {
   {
     "kazhala/close-buffers.nvim",
     config = function(plugin)
-      local opts = plugin.opts
-      require("close_buffers").setup(opts)
-      local cmds = plugin.cmds or {}
-      for _, value in pairs(cmds) do
-        local cmdName = value[1]
-        local cmdFunc = value[2]
-        vim.api.nvim_create_user_command(cmdName, cmdFunc, {})
-      end
+      require("close_buffers").setup(plugin.opts or {})
+      require("utils.cmd").createCommand(plugin.cmds or {})
     end,
 
     opts = {
@@ -123,4 +117,6 @@ return {
       -- },
     },
   },
+
+  { "terryma/vim-expand-region" },
 }
