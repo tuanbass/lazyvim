@@ -40,6 +40,7 @@ return {
         require("substitute.range").word({ subject = {} })
       end, { noremap = true })
     end,
+    enabled = false,
   },
   -- enhanced subtitude
 }
