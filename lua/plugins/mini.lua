@@ -30,6 +30,9 @@ return {
     --   require("mini.bracketed").setup()
     -- end,
   },
+  -- {
+  --   "echasnovski/mini.sessions", -- declare in session.lua
+  -- },
   {
     "echasnovski/mini.indentscope",
     opts = { -- no need to use config function, opts will be merged with default opts and pass to the setup function
