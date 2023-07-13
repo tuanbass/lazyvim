@@ -118,5 +118,37 @@ return {
     },
   },
 
-  { "terryma/vim-expand-region" },
+  {
+    "terryma/vim-expand-region",
+    config = function(plugin)
+      -- TODO: Refine the order of expand region
+      vim.g.expand_region_text_objects = {
+        ["i"] = 0,
+        ["i'"] = 0,
+        ['i"'] = 0,
+        ["iw"] = 0,
+        ["i]"] = 1,
+        ["a]"] = 1,
+        ["i}"] = 1,
+        ["a}"] = 1,
+        ["i)"] = 1,
+        ["a)"] = 1,
+        ["iW"] = 0,
+        ["it"] = 1,
+        ["ii"] = 1, -- inside indent from mini.nvim
+        ["ai"] = 1, -- around indent from mini.nvim
+        -- ["ib"] = 1,
+        -- ["iB"] = 1,
+        ["il"] = 0,
+        -- ["ip"] = 0,
+        -- ["ie"] = 0,
+      }
+
+      -- dont know why cannot use "keys" property here for mapping
+
+      vim.cmd([[
+            vmap v <Plug>(expand_region_expand)
+      ]])
+    end,
+  },
 }
