@@ -19,3 +19,5 @@ return {
 --     { "<leader>ss", desc = "Navigate all function" },
 --     { "gd", desc = "Go to definition" },
 --
+
+-- also mapped j to gj. (difference in the wrap mode: gj go down by screen line, j go down by logical line)
