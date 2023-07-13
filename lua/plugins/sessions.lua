@@ -5,7 +5,6 @@ return {
     "JoseConseco/telescope_sessions_picker.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "echasnovski/mini.sessions" },
     config = function(plugin)
-      print("config telescope_sessions_picker")
       require("mini.sessions").setup({
         autoread = true,
         autowrite = true,
