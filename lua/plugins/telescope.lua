@@ -25,4 +25,36 @@ return {
     -- Need to find a way to run make automatically. Dont know why build command not work}
     keys = { { "<leader>se", "<cmd>Telescope sessions_picker<cr>", desc = "sEssion" } },
   },
+
+  -- {
+  --   "cljoly/telescope-repo.nvim",
+  --   config = function(p)
+  --     require("telescope").setup({
+  --       extensions = {
+  --         repo = {
+  --           list = {
+  --             fd_opts = {
+  --               "--ignore-file=noindex",
+  --             },
+  --             search_dirs = {
+  --               "/src",
+  --               " ~/.config/nvim_editions",
+  --             },
+  --           },
+  --         },
+  --       },
+  --     })
+  --     require("telescope").load_extension("repo")
+  --   end,
+  -- },
+  {
+    -- Projects finder
+    -- Prefer manually add project ("c" in normal mode) than auto detect like telescope-repo
+    "nvim-telescope/telescope-project.nvim",
+    config = function()
+      require("telescope").load_extension("project")
+    end,
+
+    keys = { { "<leader>fp", ":Telescope project<CR>", desc = "Projects" } },
+  },
 }
