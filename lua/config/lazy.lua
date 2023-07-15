@@ -17,7 +17,9 @@ require("lazy").setup({
     -- import/override with your plugins
     -- { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.coding" },
+    -- { import = "lazyvim.plugins.extras.ui.edgy" }, -- requires nvim 0.9, as it use WinResized event
     { import = "plugins" },
+    -- { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "plugins.explorer" },
   },
   defaults = {
@@ -47,3 +49,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- also load custom cmd in the end
+require("config.cmds")

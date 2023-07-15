@@ -1,0 +1,2 @@
+-- Create autocmd for filetype
+-- print("in ftdetect/abc.lua")
