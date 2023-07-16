@@ -4,7 +4,7 @@ function changeFoldLevel(level)
   end
 
   vim.w.ufo_fold_level = level
-  print("fold to level:", level)
+  -- print("fold to level:", level)
   require("ufo").closeFoldsWith(level)
 end
 
@@ -49,9 +49,16 @@ return {
         "*",
         function()
           vim.w.ufo_fold_level = vim.g.ufo_fold_level_start or 3
+          changeFoldLevel(vim.w.ufo_fold_level)
           -- TODO: still an issue when first time load a window, the start fold level not work
           -- possibly because the plugin is not loaded yet
-          changeFoldLevel(vim.w.ufo_fold_level)
+          -- require("utils.func").setTimeout(function()
+          --   vim.schedule(function()
+          --     print("set fold level:", vim.w.ufo_fold_level)
+          --     -- changeFoldLevel(vim.w.ufo_fold_level)
+          --     vim.cmd(":FoldL<CR>")
+          --   end)
+          -- end, 1000)
         end,
       },
     },
