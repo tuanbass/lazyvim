@@ -36,14 +36,19 @@ return {
         end,
       },
     },
-
+    keys = { { "<leader>go", "<cmd>GithubMenu<cr>", desc = "Github" } },
     auto_cmds = {
       {
         "FileType",
         "octo",
         function()
           -- vim.cmd([[ map <silent> <buffer> g? :GithubMenu<CR> ]])
-          require("utils.keys").safe_map("n", "g?", "<cmd>GithubMenu<cr>", { buffer = vim.fn.bufnr(), silent = true })
+          require("utils.keys").safe_map(
+            "n",
+            "<leader>go",
+            "<cmd>GithubMenu<cr>",
+            { buffer = vim.fn.bufnr(), silent = true }
+          )
         end,
       },
     },
