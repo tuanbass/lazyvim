@@ -8,8 +8,20 @@ opt.foldcolumn = "1" -- '0' is not bad
 opt.foldlevel = 99 -- Using ufo plugin provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable = true
+opt.shortmess = "F"
 
 vim.g.ufo_fold_level_start = 2 -- start fold level when open new file. Not work yet.
 opt.formatoptions = "jcrql" -- disable comment continuation with "o"
 
 opt.winminwidth = 1 -- required for TaDaa/vimade work properly
+
+-- tab options
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+
+-- invisible characters
+opt.list = true
+opt.listchars:append("eol:↴")
+
+-- search options

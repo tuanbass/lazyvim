@@ -1,9 +1,20 @@
 -- stylua: ignore
 
-  return 
-  {
-    { "folke/noice.nvim", enabled = false }, -- disable it because of annoy notification
-  }
+return
+{
+  { "folke/noice.nvim", enabled = false },   -- disable it because of annoy notification
+  -- {"yanky.nvim", enabled = false},
+  -- {"gitsigns.nvim", enabled = false},
+  -- {"indent-blankline.nvim", enabled = false},
+  -- {"mini.indentscope", enabled = false},
+  -- {"null-ls.nvim", enabled = false},
+  -- {"persistence.nvim", enabled = false},
+  -- {"sqlite.lua", enabled = false},
+  -- {"todo-comments.nvim", enabled = false},
+  -- {"trouble.nvim", enabled = false},
+  -- {"vim-illuminate", enabled = false},
+  -- {"nvim-navic", enabled = false},
+}
 
 -- if true then
 --   return {
