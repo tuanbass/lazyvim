@@ -54,4 +54,12 @@ return {
       require("scope").setup()
     end,
   },
+  {
+    "folke/edgy.nvim",
+    opts = {
+      animate = {
+        enabled = false,
+      },
+    },
+  },
 }
