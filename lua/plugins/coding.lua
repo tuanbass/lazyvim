@@ -53,4 +53,7 @@ return {
       })
     end,
   },
+  -- {  -- disable, as not work at  the moment in Lazy vim
+  --   "smjonas/inc-rename.nvim",
+  -- },
 }

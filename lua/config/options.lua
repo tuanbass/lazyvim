@@ -15,7 +15,7 @@ opt.formatoptions = "jcrql" -- disable comment continuation with "o"
 
 opt.winminwidth = 1 -- required for TaDaa/vimade work properly
 
--- tab options
+-- default tab options, effective only if no .
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true

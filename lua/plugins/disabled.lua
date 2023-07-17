@@ -2,7 +2,7 @@
 
 return
 {
-  { "folke/noice.nvim", enabled = false },   -- disable it because of annoy notification
+  -- { "folke/noice.nvim", enabled = false },   -- disable it because of annoy notification
   -- {"yanky.nvim", enabled = false},
   -- {"gitsigns.nvim", enabled = false},
   -- {"indent-blankline.nvim", enabled = false},
