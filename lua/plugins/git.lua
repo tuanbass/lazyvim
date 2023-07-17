@@ -5,13 +5,12 @@ return {
       { "<leader>gg", "<cmd>Neogit<CR>", desc = "Neogit" },
       { "<leader>gC", "<cmd>Telescope git_bcommits<CR>", desc = "bcommits" },
     },
-    config = function()
-      require("neogit").setup({
-        integrations = {
-          diffview = true,
-        },
-      })
-    end,
+    opts = {
+      disable_commit_confirmation = true,
+      integrations = {
+        diffview = true,
+      },
+    },
   },
   {
     "f-person/git-blame.nvim",
