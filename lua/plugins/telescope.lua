@@ -6,6 +6,7 @@ return {
     -- force all select action in nvim to use telescope
     "nvim-telescope/telescope-ui-select.nvim",
     -- cmd = "Telescope ",
+    event = "VeryLazy",
     dependencies = "telescope.nvim",
     config = function()
       require("telescope").load_extension("ui-select")
@@ -17,6 +18,7 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     -- cmd = "Telescope ",
     dependencies = "telescope.nvim",
+    event = "VeryLazy",
     config = function()
       require("telescope").load_extension("fzf")
     end,
