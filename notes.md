@@ -9,5 +9,5 @@
 - t: tag 
 
 ## Some important shortcut (not familiar)
-- <leader>ss: navigate function in current buffer
+  - <leader>ss: navigate function in current buffer
 
