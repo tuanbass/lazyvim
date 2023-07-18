@@ -22,4 +22,12 @@ require("utils.cmd").createCommand({
     end,
     { nargs = "*" },
   },
+  {
+    "CopyPathFull",
+    "let @+ = expand('%:p')",
+  },
+  {
+    "CopyPathRelative",
+    "let @+ = expand('%')",
+  },
 })
