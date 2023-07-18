@@ -7,6 +7,11 @@ return {
     -- after = "nvim-cmp",
     dependencies = {
       "hrsh7th/nvim-cmp",
+      opts = {
+        completion = {
+          completeopt = table.concat(vim.opt.completeopt:get(), ","),
+        },
+      },
     },
   },
   {

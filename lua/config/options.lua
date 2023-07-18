@@ -25,3 +25,6 @@ opt.list = true
 opt.listchars:append("eol:↴")
 
 -- search options
+
+-- completeoptions
+opt.completeopt = "menu,menuone,preview,longest,noselect"
