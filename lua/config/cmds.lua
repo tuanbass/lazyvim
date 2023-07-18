@@ -13,8 +13,8 @@ require("utils.cmd").createCommand({
 
       vim.g.lazy_auto_reload = state == "on"
       if vim.g.lazy_auto_reload then
-        require("lazy.manage.reloader").enable()
         print("Autoreload enabled !!!")
+        require("lazy.manage.reloader").enable()
       else
         require("lazy.manage.reloader").disable()
         print("Autoreload disabled !!!")
@@ -24,10 +24,10 @@ require("utils.cmd").createCommand({
   },
   {
     "CopyPathFull",
-    "let @+ = expand('%:p')",
+    "let @+ = expand('%:p') | echo 'copied to clipboard: '..@+",
   },
   {
     "CopyPathRelative",
-    "let @+ = expand('%')",
+    "let @+ = expand('%') | echo 'copied to clipboard: '..@+",
   },
 })
