@@ -11,19 +11,20 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     -- { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.coding" },
-    -- { import = "lazyvim.plugins.extras.ui.edgy" }, -- requires nvim 0.9, as it use WinResized event
+    { import = "lazyvim.plugins.extras.ui.edgy" }, -- requires nvim 0.9, as it use WinResized event
+    { import = "lazyvim.plugins.extras.util.project" },
     { import = "plugins" },
     -- { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "plugins.explorer" },
   },
-  defaults = {
-    -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
+  defaults = { -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
     lazy = false,
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
@@ -31,7 +32,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  change_detection = { enabled = false }, -- disable auto reload LazyVim
+  change_detection = { enabled = vim.g.lazy_auto_reload }, -- disable auto reload LazyVim
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
