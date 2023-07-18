@@ -19,13 +19,15 @@ return {
   -- enhanced subtitude
   {
     "gbprod/substitute.nvim",
-    config = function(opts)
-      require("substitute").setup({
-        highlight_substituted_text = {
-          enabled = true,
-          timer = 1000,
-        },
-      })
+    priority = 30, -- low priority, it's tricky here to force it load after flash.nvim to ensure the shortcut is not overwrite by flash.nvim
+    opts = {
+      highlight_substituted_text = {
+        enabled = true,
+        timer = 1000,
+      },
+    },
+    config = function(p)
+      require("substitute").setup(p.opts)
       -- TODO: Not work yet
       vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
       vim.keymap.set("n", "ss", require("substitute").line, { noremap = true })
@@ -36,12 +38,11 @@ return {
       vim.keymap.set("n", "<leader>s", require("substitute.range").operator, { noremap = true })
       vim.keymap.set("x", "<leader>s", require("substitute.range").visual, { noremap = true })
 
-      vim.keymap.set("n", "<leader>ss", function()
-        -- tricky: pass a empty table to subject to avoid nil exception
-        require("substitute.range").word({ subject = {} })
-      end, { noremap = true })
+      -- vim.keymap.set("n", "<leader>ss", function()
+      --   -- tricky: pass a empty table to subject to avoid nil exception
+      --   require("substitute.range").word({ subject = {} })
+      -- end, { noremap = true })
     end,
-    enabled = false,
   },
 
   -- command help to close multiple buffers
@@ -120,6 +121,7 @@ return {
 
   {
     "terryma/vim-expand-region",
+    ---@diagnostic disable-next-line: unused-local
     config = function(plugin)
       -- TODO: Refine the order of expand region
       vim.g.expand_region_text_objects = {
@@ -151,4 +153,8 @@ return {
       ]])
     end,
   },
+  -- {
+  --  No more needed from nvim 0.9, as .editorconfig builtin supported
+  --   "editorconfig/editorconfig-vim",
+  -- },
 }
