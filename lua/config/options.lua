@@ -27,4 +27,6 @@ opt.listchars:append("eol:↴")
 -- search options
 
 -- completeoptions
-opt.completeopt = "menu,menuone,preview,longest,noselect"
+-- opt.completeopt = "menu,menuone,preview,longest,noselect"
+
+vim.g.cmdline_autocomplete_opts = "menu,menuone,preview,longest,noselect"

@@ -7,11 +7,7 @@ return {
     -- after = "nvim-cmp",
     dependencies = {
       "hrsh7th/nvim-cmp",
-      opts = {
-        completion = {
-          completeopt = table.concat(vim.opt.completeopt:get(), ","),
-        },
-      },
+      -- opts = {},
     },
   },
   {
@@ -44,6 +40,9 @@ return {
 
       -- autocomplete for search
       cmp.setup.cmdline(":", {
+        completion = {
+          completeopt = vim.g.cmdline_autocomplete_opts,
+        },
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
           { name = "path" },
