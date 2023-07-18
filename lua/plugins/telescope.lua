@@ -49,14 +49,17 @@ return {
   --     require("telescope").load_extension("repo")
   --   end,
   -- },
-  {
-    -- Projects finder
-    -- Prefer manually add project ("c" in normal mode) than auto detect like telescope-repo
-    "nvim-telescope/telescope-project.nvim",
-    config = function()
-      require("telescope").load_extension("project")
-    end,
+  -- {
+  --   -- Projects finder
+  --   TODO: eval which one is better, telescope project, or ahmedkhalf/project.nvim
 
-    keys = { { "<leader>fp", ":Telescope project<CR>", desc = "Projects" } },
-  },
+  --   -- Prefer manually add project ("c" in normal mode) than auto detect like telescope-repo
+  --   "nvim-telescope/telescope-project.nvim",
+  --   config = function()
+  --     require("telescope").load_extension("project")
+  --   end,
+  --
+  --   keys = { { "<leader>fp", ":Telescope project<CR>", desc = "Projects" } },
+  -- },
+  { import = "lazyvim.plugins.extras.util.project" },
 }
