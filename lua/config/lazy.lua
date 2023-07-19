@@ -43,7 +43,7 @@ require("lazy").setup({
   },
   change_detection = { enabled = vim.g.lazy_auto_reload }, -- disable auto reload LazyVim
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = vim.g.lazy_auto_reload }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
