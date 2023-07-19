@@ -12,7 +12,7 @@ return {
   {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
-    lazy = false,
+    lazy = true,
     config = function(plugin)
       -- print("config ufo")
       require("utils.cmd").createCommand(plugin.cmds or {})

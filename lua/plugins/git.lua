@@ -11,13 +11,13 @@ return {
         diffview = true,
       },
     },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
   },
   {
     "f-person/git-blame.nvim",
-  },
-  {
-    "sindrets/diffview.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
   },
   {
     "akinsho/git-conflict.nvim",
