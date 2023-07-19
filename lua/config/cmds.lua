@@ -11,13 +11,13 @@ require("utils.cmd").createCommand({
         return
       end
 
-      vim.g.lazy_auto_reload = state == "on"
+      vim.g.lazy_auto_reload = state == "on" or state == "1"
       if vim.g.lazy_auto_reload then
-        print("Autoreload enabled !!!")
+        vim.notify("Autoreload enabled !!!")
         require("lazy.manage.reloader").enable()
       else
         require("lazy.manage.reloader").disable()
-        print("Autoreload disabled !!!")
+        vim.notify("Autoreload disabled !!!")
       end
     end,
     { nargs = "*" },
