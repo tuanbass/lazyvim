@@ -57,6 +57,26 @@ return {
       })
     end,
   },
+  {
+    -- It does not work at the moment.
+    -- https://github.com/ThePrimeagen/refactoring.nvim/issues/404
+
+    "ThePrimeagen/refactoring.nvim",
+    opts = {},
+    config = function(_, opts)
+      local refactoring = require("refactoring")
+      -- local map = require("user.util").map
+
+      refactoring.setup(opts)
+
+      vim.keymap.set({ "v", "n" }, "<leader>rr", refactoring.select_refactor, { noremap = true })
+      -- vim.keymap.set("n", "s", require("substitute").operator, { noremap = true })
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
   -- {  -- disable, as not work at  the moment in Lazy vim
   --   "smjonas/inc-rename.nvim",
   -- },
