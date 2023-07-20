@@ -1,0 +1,25 @@
+
+# see https://github.com/CppCXY/EmmyLuaCodeStyle
+# notes that, maybe the format functionality can use other formater like stylua which uses a different config file (stylelua.toml)
+
+[*.lua]
+# [basic]
+
+# optional space/tab
+indent_style = space
+# if indent_style is space, this is valid
+indent_size = 2
+# if indent_style is tab, this is valid
+tab_width = 2
+
+# this mean utf8 length , if this is 'unset' then the line width is no longer checked
+# this option decides when to chopdown the code
+# max_line_length = 200
+
+# optional crlf/lf/cr/auto, if it is 'auto', in windows it is crlf other platforms are lf
+# in neovim the value 'auto' is not a valid option, please use 'unset'
+end_of_line = unset
+
+# this will check text end with new line
+insert_final_newline = true
+
