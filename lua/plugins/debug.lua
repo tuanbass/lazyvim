@@ -77,6 +77,7 @@ return {
 		"anuvyklack/hydra.nvim",
 		config = function() show_hydra() end,
 		-- opts = function(_, opts) end,
+		keys = { { "<leader>das", function() require("osv").stop() end, desc = "Stop Lua server" } },
 	},
 }
 
