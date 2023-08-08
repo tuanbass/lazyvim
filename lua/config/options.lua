@@ -23,6 +23,7 @@ opt.expandtab = true
 -- invisible characters
 opt.list = true
 opt.listchars:append("eol:↴")
+opt.listchars:append("tab:>>")
 
 -- search options
 
