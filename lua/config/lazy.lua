@@ -13,12 +13,6 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = {
-        -- colorscheme = "doom-one",
-        -- colorscheme = "sonokai",
-        -- colorscheme = "edge",
-        colorscheme = "catppuccin-macchiato",
-      },
     },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.lang.typescript" },
