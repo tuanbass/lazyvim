@@ -22,3 +22,5 @@
 - [ ] Have telescope project integrated with neo-tree (see: require("neo-tree.sources.manager").set_cwd())
 - [x] debug hydra
 - [ ] flash jump with 2 chars
+- [ ] integrated neotest
+  - [ ] Includes jest-decorated

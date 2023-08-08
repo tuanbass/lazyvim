@@ -147,6 +147,15 @@ return {
 					},
 					view = "mini",
 				},
+				{
+					-- DEBUG message should go to mini for not annoy
+					filter = {
+						event = "msg_show",
+						kind = "",
+						find = "DEBUG",
+					},
+					view = "mini",
+				},
 			},
 		},
 	},
