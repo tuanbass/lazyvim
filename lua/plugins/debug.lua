@@ -11,6 +11,7 @@ local Preset = {
   _<F17>_: Run2Cursor(S-F5)
   _d_    : Show Hydra
   _X_    : exit
+  _S_: Terminate
     ]],
 		heads = {
 			-- some shortcut use function key
@@ -31,13 +32,15 @@ local Preset = {
   _R_: Start/Continue
   _O_: Step Over
   _I_: Step Into
-  _S_: Stop
+  _<C-O>_: Step Out
+  _S_: Terminate
   _d_: Show Hydra
   _X_: exit
     ]],
 		heads = {
 			{ "O", function() dap.step_over() end, { desc = "Step Over" } }, -- Step Over
 			{ "I", function() dap.step_into() end, { desc = "Step Into" } }, -- Step Into
+			{ "<C-O>", function() dap.step_out() end, { desc = "Step Out" } }, -- Step Out
 			{ "B", function() dap.toggle_breakpoint() end, { desc = "Toggle breakpoint" } }, -- Toggle breakpoint
 			{ "R", function() dap.continue() end, { desc = "Start/Continue" } }, -- start/continue
 			{ "S", function() dap.terminate() end, { desc = "Terminate" } }, -- start/continue
@@ -72,12 +75,37 @@ end
 
 return {
 	{ import = "lazyvim.plugins.extras.dap.core" },
-	{ import = "lazyvim.plugins.extras.dap.nlua" },
+	-- { import = "lazyvim.plugins.extras.dap.nlua" },
 	{
 		"anuvyklack/hydra.nvim",
+		lazy = false,
 		config = function() show_hydra() end,
 		-- opts = function(_, opts) end,
 		keys = { { "<leader>das", function() require("osv").stop() end, desc = "Stop Lua server" } },
+	},
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			{
+				"jbyuki/one-small-step-for-vimkind",
+      -- stylua: ignore
+      keys = {
+        { "<leader>daL", function() require("osv").launch({ port = 8086, log = true }) end, desc = "Adapter Lua Server" }, -- debug for nvim lua
+        { "<leader>dal", function() require("osv").run_this() end, desc = "Adapter Lua" }, -- debug opening lua file
+      },
+				config = function()
+					local dap = require("dap")
+					dap.adapters.nlua = function(callback, config) callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) end
+					dap.configurations.lua = {
+						{
+							type = "nlua",
+							request = "attach",
+							name = "Attach to running Neovim instance",
+						},
+					}
+				end,
+			},
+		},
 	},
 }
 
