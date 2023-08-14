@@ -16,14 +16,17 @@ return {
       "sindrets/diffview.nvim",
     },
   },
-  {
-    "f-person/git-blame.nvim",
-  },
+  -- {
+  --   "f-person/git-blame.nvim", --show git blame for current line. No need, as there is a supported with git signts
+  -- },
   {
     "akinsho/git-conflict.nvim",
   },
   {
-    "lewis6991/gitsigns.nvim",
+    "lewis6991/gitsigns.nvim", -- work with hunk in git
+    opts = {
+      current_line_blame = true,
+    },
 
     -- keys = { -- no need, already defined as ]h or [h]
     --   { "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", desc = "NextHunk" },
