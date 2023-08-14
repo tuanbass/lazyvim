@@ -57,6 +57,7 @@ return {
       })
     end,
   },
+  -- { "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", config = function() require("toggle_lsp_diagnostics").init() end }, -- no need, lazyvim already have builtin support with <leader>ud
   {
     -- It does not work at the moment.
     -- https://github.com/ThePrimeagen/refactoring.nvim/issues/404
