@@ -41,4 +41,15 @@ return {
       },
     },
   },
+  {
+
+    -- We change configuration  for '`' as the default one's very annoy in markdown when we want to type inline code
+    "echasnovski/mini.pairs",
+    version = "*",
+    opts = {
+      mappings = {
+        ["`"] = { action = "open", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
+      },
+    },
+  },
 }
