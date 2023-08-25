@@ -1,3 +1,5 @@
+-- create some custome hot keys
+
 return {
   {
     "TimUntersberger/neogit",
@@ -21,6 +23,7 @@ return {
   -- },
   {
     "akinsho/git-conflict.nvim",
+    config = true,
   },
   {
     "lewis6991/gitsigns.nvim", -- work with hunk in git

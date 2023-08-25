@@ -49,6 +49,7 @@ return {
         --   size = { height = 0.4 },
         --   filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
         -- },
+        { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
         {
           ft = "noice",
           size = { height = 0.4 },
@@ -69,7 +70,6 @@ return {
           filter = function(buf) return vim.bo[buf].buftype == "help" end,
         },
         { ft = "spectre_panel", size = { height = 0.4 } },
-        { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
       },
     },
   },

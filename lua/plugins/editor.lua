@@ -8,9 +8,7 @@ return {
     keys = {
       {
         "gy",
-        function()
-          require("telescope").extensions.yank_history.yank_history({})
-        end,
+        function() require("telescope").extensions.yank_history.yank_history({}) end,
         desc = "Open Yank History",
       },
       -- other default shortcut can be found in $HOME/.local/share/nvim_plugins/lazyvim/lazy/LazyVim/lua/lazyvim/plugins/extras/coding/yanky.lua
