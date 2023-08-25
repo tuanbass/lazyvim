@@ -7,7 +7,7 @@ local function format(opts)
   }
 end
 
-local jumpToWord = function()
+local jumpByPattern = function(pattern)
   --@param opts Flash.Format
 
   Flash.jump({
@@ -18,7 +18,8 @@ local jumpToWord = function()
       uppercase = false,
       format = format,
     },
-    pattern = [[\<]],
+    -- pattern = [[\<]],
+    pattern = pattern,
     action = function(match, state)
       state:hide()
       Flash.jump({
@@ -27,9 +28,7 @@ local jumpToWord = function()
         label = { format = format },
         matcher = function(win)
           -- limit matches to the current label
-          return vim.tbl_filter(function(m)
-            return m.label == match.label and m.win == win
-          end, state.results)
+          return vim.tbl_filter(function(m) return m.label == match.label and m.win == win end, state.results)
         end,
         labeler = function(matches)
           for _, m in ipairs(matches) do
@@ -54,9 +53,7 @@ return {
 
   { -- j/k to escape
     "max397574/better-escape.nvim",
-    cond = function()
-      return vim.g.vscode ~= 1
-    end,
+    cond = function() return vim.g.vscode ~= 1 end,
     config = function()
       require("better_escape").setup({
         mapping = { "jk", "jj", "kj", "kk" }, -- a table with mappings to use
@@ -72,6 +69,8 @@ return {
     vscode = true,
     ---@type Flash.Config
     opts = {
+      label = { exclude = "" }, -- add more available char for the label
+      search = { multi_window = false },
       modes = {
         char = {
           jump_labels = true,
@@ -103,11 +102,12 @@ return {
     keys = {
 
       { "*", mode = { "n", "x", "o" }, function() require("flash").jump({  pattern = vim.fn.expand("<cword>") }) end, desc = "Flash" }, -- search word under cursor
-      { "<C-G>", mode = { "n", "x", "o" }, jumpToWord, desc = "Flash" },
+      { "gw", mode = { "n", "x", "o" }, function() jumpByPattern([[\<]]) end, desc = "JumpWord" },
+      { "ga", mode = { "n", "o", "x" }, function() jumpByPattern() end, desc = "JumpChar" },
       { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      -- { 
+      -- {
       --   -- Show diagnostics at target, without changing cursor position
-      --   "<leader>cD", mode = { "n" }, function() 
+      --   "<leader>cD", mode = { "n" }, function()
       --     require("flash").jump({
       --       action = function(match, state)
       --         vim.api.nvim_win_call(match.win, function()
