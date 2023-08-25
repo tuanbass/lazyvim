@@ -15,19 +15,19 @@ require("lazy").setup({
       import = "lazyvim.plugins",
     },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.dap.core" },
     -- { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
-    -- { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.dap.core" }, -- TODO: moving this line into plugins.debug does not work, because of loading order
     { import = "lazyvim.plugins.extras.coding" },
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- requires nvim 0.9, as it use WinResized event
     { import = "lazyvim.plugins.extras.util.project" },
-    { import = "plugins" },
-    -- { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lang" },
+    { import = "plugins" },
+    -- { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- { import = "lazyvim.plugins.extras.lang.go" },
+    -- { import = "lazyvim.plugins.extras.lang.go" },
   },
   defaults = { -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
