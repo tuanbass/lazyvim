@@ -1,13 +1,9 @@
-local M = {}
+-- we overwrite behavior of neotree plugin here
 
--- Default mappings. Feel free to modify or remove as you wish.
--- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/v2.x/lua/neo-tree/defaults.lua
---
-
-M.keymap = {
+local keymap = {
   ["o"] = {
     "open",
-    nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+    nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
   },
   ["<Tab>"] = { "toggle_preview", config = { use_float = false } },
 
@@ -34,4 +30,13 @@ M.keymap = {
   end,
 }
 
-return M
+return {
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        mappings = keymap,
+      },
+    },
+  },
+}
