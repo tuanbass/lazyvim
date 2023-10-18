@@ -12,10 +12,10 @@ do
 
     local keys = require("lazy.core.handler").handlers.keys
     -- print("active", vim.inspect(keys.active))
-    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    if not keys or not keys.active[keys.parse({ lhs, mode = mode }).id] then
       vim.keymap.set(mode, lhs, rhs, opts)
     else
-      print("lazy keymap: keys already exists")
+      vim.notify("lazy keymap: keys already exists")
     end
   end
   -- publics

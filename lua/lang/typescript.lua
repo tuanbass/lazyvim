@@ -5,6 +5,18 @@
 --    dprint: code formatting platform, with lots of plugin
 --    rome: formater
 --    standardts: eslint with standardjs rules, no need specific config file
+local auto_cmds = {
+  -- add short cut for test --watch
+  {
+    "FileType",
+    "typescript",
+    function()
+      require("utils.keys").safe_map("n", "<leader>tw", "<cmd>lua require('neotest').run.run({ jestCommand = 'yarn jest --watch ' })<cr>", { desc = "Watch..", buffer = vim.fn.bufnr(), silent = true })
+    end,
+  },
+}
+
+require("utils.cmd").createAutoCommand(auto_cmds or {})
 
 return {
   {
