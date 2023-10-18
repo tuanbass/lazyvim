@@ -9,4 +9,11 @@ M.setTimeout = function(callback, ms)
   return timer
 end
 
+M.find = function(t, value)
+  for i, v in ipairs(t) do
+    if v == value then return i end
+  end
+  return nil
+end
+
 return M

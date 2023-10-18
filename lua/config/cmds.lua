@@ -30,4 +30,24 @@ require("utils.cmd").createCommand({
     "CopyPathRelative",
     "let @+ = expand('%') | echo 'copied to clipboard: '..@+",
   },
+  {
+    "CopyDir",
+    "let @+ = expand('%:p:h') . '/' | echo 'copied to clipboard: '..@+",
+  },
+  {
+    "CopyDirRelative",
+    "let @+ = expand('%:h') . '/' | echo 'copied to clipboard: '..@+",
+  },
+  {
+    "BufCleanContent",
+    function()
+      local buf = vim.fn.bufnr()
+      if buf ~= -1 then
+        local mod = vim.api.nvim_get_option_value("modifiable", { buf = buf })
+        vim.api.nvim_set_option_value("modifiable", true, { buf = buf })
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+        vim.api.nvim_set_option_value("modifiable", mod, { buf = buf })
+      end
+    end,
+  },
 })
