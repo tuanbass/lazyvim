@@ -23,6 +23,9 @@ return {
       border = "single",
     },
   },
+  -- {
+  --   "simrat39/inlay-hints.nvim",
+  -- },
   {
     -- autocomplete for command mode and search mode
     "hrsh7th/cmp-cmdline",
@@ -78,6 +81,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+  { "mattn/webapi-vim" }, -- used for `:RustPlay` command
   -- {  -- disable, as not work at  the moment in Lazy vim
   --   "smjonas/inc-rename.nvim",
   -- },
