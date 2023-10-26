@@ -20,7 +20,6 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "lazyvim.plugins.extras.dap.core" }, -- TODO: moving this line into plugins.debug does not work, because of loading order
-    { import = "lazyvim.plugins.extras.coding" },
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- requires nvim 0.9, as it use WinResized event
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lang" },
