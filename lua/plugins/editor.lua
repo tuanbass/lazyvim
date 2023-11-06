@@ -1,22 +1,24 @@
 return {
   -- enhanced yank
-  {
-    "gbprod/yanky.nvim",
-    -- config = function(opts)
-    --   require("yanky").setup(opts)
-    -- end,
-    keys = {
-      {
-        "gy",
-        function() require("telescope").extensions.yank_history.yank_history({}) end,
-        desc = "Open Yank History",
-      },
-      -- other default shortcut can be found in $HOME/.local/share/nvim_plugins/lazyvim/lazy/LazyVim/lua/lazyvim/plugins/extras/coding/yanky.lua
-    },
-  },
+  -- remove yanky formanaged in Lazyvim extra
+  -- {
+  --   "gbprod/yanky.nvim",
+  --   -- config = function(opts)
+  --   --   require("yanky").setup(opts)
+  --   -- end,
+  --   keys = {
+  --     {
+  --       "<leader>gy",
+  --       function() require("telescope").extensions.yank_history.yank_history({}) end,
+  --       desc = "Open Yank History",
+  --     },
+  --     -- other default shortcut can be found in $HOME/.local/share/nvim_plugins/lazyvim/lazy/LazyVim/lua/lazyvim/plugins/extras/coding/yanky.lua
+  --   },
+  -- },
   -- enhanced subtitude
   {
     "gbprod/substitute.nvim",
+    vscode = true,
     priority = 30, -- low priority, it's tricky here to force it load after flash.nvim to ensure the shortcut is not overwrite by flash.nvim
     opts = {
       highlight_substituted_text = {
@@ -120,6 +122,7 @@ return {
   {
     "terryma/vim-expand-region",
     ---@diagnostic disable-next-line: unused-local
+    vscode = true,
     config = function(plugin)
       -- TODO: Refine the order of expand region
       vim.g.expand_region_text_objects = {
