@@ -2,8 +2,10 @@
   "extras": [
     "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.coding.tabnine",
     "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.editor.mini-files",
+    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.ui.alpha",
     "lazyvim.plugins.extras.vscode"
   ],
