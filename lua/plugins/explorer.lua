@@ -15,6 +15,19 @@ return {
         -- contrast with folke's LazyVim, I prefer to use mini.files for directory
         use_as_default_explorer = true,
       },
+      mappings = {
+        close = "q",
+        go_in = "L",
+        go_in_plus = "l",
+        go_out = "H",
+        go_out_plus = "h",
+        reset = "<BS>",
+        reveal_cwd = "@",
+        show_help = "g?",
+        synchronize = "=",
+        trim_left = "<",
+        trim_right = ">",
+      },
     },
   },
 
