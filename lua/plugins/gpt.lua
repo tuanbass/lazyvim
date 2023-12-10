@@ -108,6 +108,7 @@ local function define_shortcut()
       p = { "<cmd>GpPopup<cr>", "Popup" },
       s = { "<cmd>GpStop<cr>", "Stop" },
       i = { "<cmd>GpInspectPlugin<cr>", "Inspect" },
+      ["<C-g>"] = { "<cmd>GpChatRespond<cr>", "Chat Respond" },
 
       -- -- optional Whisper commands
       -- w = { "<cmd>GpWhisper<cr>", "Whisper" },

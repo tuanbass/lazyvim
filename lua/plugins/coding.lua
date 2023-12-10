@@ -85,4 +85,32 @@ return {
   -- {  -- disable, as not work at  the moment in Lazy vim
   --   "smjonas/inc-rename.nvim",
   -- },
+  -- auto turn off ibus when entering normal mode
+  -- Notes: it does not work if manually switch to ibus (vietnamese) in normal mode
+  { "kevinhwang91/nvim-ibus-sw", config = function() require("ibus-sw").setup() end },
+
+  -- auto change a closed tag when change the open one and vice versa
+  { "AndrewRadev/tagalong.vim" },
+  -- look up the diagnostics with ChatGPT
+  {
+    "piersolenski/wtf.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {},
+    keys = {
+      {
+        "<C-g>w",
+        mode = { "n", "x" },
+        function() require("wtf").ai() end,
+        desc = "GPT Diag",
+      },
+      {
+        mode = { "n" },
+        "<C-g>W",
+        function() require("wtf").search() end,
+        desc = "Search Diag",
+      },
+    },
+  },
 }
