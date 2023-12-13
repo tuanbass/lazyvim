@@ -1,4 +1,29 @@
--- mini.files
+-- mini.files customizations
+local yank_path = function(pattern)
+  local MiniFiles = require("mini.files")
+  local raw_path = MiniFiles.get_fs_entry().path
+  local canonical_path = vim.fn.fnamemodify(raw_path, pattern)
+  -- print("inside yank_relative_path", path, "..", relative_path)
+  vim.fn.setreg("+", canonical_path)
+  print("yanked:", canonical_path)
+end
+
+-- shortcut for yank path/dir in mini.files
+local yank_relative_path = function() yank_path(":.") end
+local yank_full_path = function() yank_path(":p") end
+local yank_relative_dir = function() yank_path(":.:h") end
+local yank_full_dir = function() yank_path(":h") end
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesBufferCreate",
+  callback = function(args)
+    vim.keymap.set("n", "gy", yank_relative_path, { buffer = args.data.buf_id })
+    vim.keymap.set("n", "gY", yank_full_path, { buffer = args.data.buf_id })
+
+    vim.keymap.set("n", "gd", yank_relative_dir, { buffer = args.data.buf_id })
+    vim.keymap.set("n", "gD", yank_full_dir, { buffer = args.data.buf_id })
+  end,
+})
 return {
   {
     "echasnovski/mini.files",
