@@ -51,3 +51,9 @@ require("utils.cmd").createCommand({
     end,
   },
 })
+
+-- create some command alias
+vim.cmd([[
+  cnoreabbrev vterm vs +term
+  cnoreabbrev hterm sp +term
+]])
