@@ -8,9 +8,7 @@ return {
     -- cmd = "Telescope ",
     event = "VeryLazy",
     dependencies = "telescope.nvim",
-    config = function()
-      require("telescope").load_extension("ui-select")
-    end,
+    config = function() require("telescope").load_extension("ui-select") end,
   },
   { -- fuzzy search
     -- NOTES: it works only for grep_string and find_files, anf not for live_grep (as live_grep use ag directly, not use telescope sorter )
@@ -19,13 +17,26 @@ return {
     -- cmd = "Telescope ",
     dependencies = "telescope.nvim",
     event = "VeryLazy",
-    config = function()
-      require("telescope").load_extension("fzf")
-    end,
+    config = function() require("telescope").load_extension("fzf") end,
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     -- TODO: Currently, sometime you need to go to /.local/share/nvim/lazy/telescope-fzf-native.nvim and manual run make.
     -- Need to find a way to run make automatically. Dont know why build command not work}
     keys = { { "<leader>se", "<cmd>Telescope sessions_picker<cr>", desc = "sEssion" } },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      },
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+      require("utils.keys").safe_map("n", "<leader>/", "<cmd>:Telescope live_grep_args<CR>", { desc = "Greps with args" })
+    end,
   },
 
   -- {
