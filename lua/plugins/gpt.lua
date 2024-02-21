@@ -1,8 +1,8 @@
-local Model = {
-  GPT_3_5_TURBO_16K = "gpt-3.5-turbo-16k",
-  GPT_3_5_TURBO = "gpt-3.5-turbo",
-  GPT_4 = "gpt-4",
-}
+-- local Model = {
+--   GPT_3_5_TURBO_16K = "gpt-3.5-turbo-16k",
+--   GPT_3_5_TURBO = "gpt-3.5-turbo",
+--   GPT_4 = "gpt-4",
+-- }
 
 -- Custom functions for commands
 local CustomFunctions = {
@@ -10,49 +10,52 @@ local CustomFunctions = {
     local template = "I have the following code from {{filename}}:\n\n"
       .. "```{{filetype}}\n{{selection}}\n```\n\n"
       .. "Please respond by writing unit tests for the code above. Just write the code, no need explanation"
-    gp.Prompt(params, gp.Target.enew, nil, gp.config.command_model, template, gp.config.command_system_prompt)
+    local agent = gp.get_chat_agent()
+    gp.Prompt(params, gp.Target.enew, nil, agent.command_model, template, gp.config.command_system_prompt)
   end,
 
   -- example of adding command which explains the selected code
   Explain = function(gp, params)
     local template = "I have the following code from {{filename}}:\n\n" .. "```{{filetype}}\n{{selection}}\n```\n\n" .. "Please respond by explaining the code above."
-    gp.Prompt(params, gp.Target.popup, nil, gp.config.command_model, template, gp.config.chat_system_prompt)
+    local agent = gp.get_chat_agent()
+    gp.Prompt(params, gp.Target.popup, nil, agent.command_model, template, gp.config.chat_system_prompt)
   end,
 
   -- example of usig enew as a function specifying type for the new buffer
   CodeReview = function(gp, params)
     -- local template = "I have the following code from {{filename}}:\n\n" .. "```{{filetype}}\n{{selection}}\n```\n\n" .. "Please analyze for code smells and suggest improvements."
     local template = "I have the following code from {{filename}}:\n\n" .. "```{{filetype}}\n{{selection}}\n```\n\n" .. "Please analyze for code smells "
-    gp.Prompt(params, gp.Target.enew("markdown"), nil, gp.config.command_model, template, gp.config.command_system_prompt)
+    local agent = gp.get_chat_agent()
+    gp.Prompt(params, gp.Target.enew("markdown"), nil, agent.command_model, template, gp.config.command_system_prompt)
   end,
 
   CallGraph = function(gp, params)
     local template = "I have the following code from {{filename}}:\n\n"
       .. "```{{filetype}}\n{{selection}}\n```\n\n"
       .. "Tell me function call graph from this code. Draw the graph only, no need explanation"
-    local model = { model = Model.GPT_3_5_TURBO, temperature = 0.3 }
-    gp.Prompt(params, gp.Target.enew("markdown"), nil, model, template, gp.config.command_system_prompt)
+    local agent = gp.get_chat_agent()
+    gp.Prompt(params, gp.Target.enew("markdown"), nil, agent.model, template, gp.config.command_system_prompt)
   end,
 
   Translate = function(gp, params)
     local template = "Transalate following test {{filename}}:\n\n" .. "```{{filetype}}\n{{selection}}\n```\n\n" .. params.args
-    local model = { model = Model.GPT_3_5_TURBO, temperature = 0.3 }
-    gp.Prompt(params, gp.Target.enew("markdown"), nil, model, template, gp.config.command_system_prompt)
+    local agent = gp.get_chat_agent()
+    gp.Prompt(params, gp.Target.enew("markdown"), nil, agent.model, template, gp.config.command_system_prompt)
   end,
 }
 
--- configuration when call to chatgpt api
-local conf = {
-  -- chat model used to generate chat content
-  chat_model = { model = Model.GPT_3_5_TURBO_16K, temperature = 1.1 },
-
-  -- model used to generate chat topics (topic: ?) header from chat content
-  chat_topic_gen_model = Model.GPT_3_5_TURBO_16K,
-
-  -- command config and templates bellow are used by commands like GpRewrite, GpEnew, etc.
-  command_model = { model = Model.GPT_3_5_TURBO_16K, temperature = 1.1 },
-  hooks = CustomFunctions,
-}
+-- -- configuration when call to chatgpt api
+-- local conf = {
+--   -- chat model used to generate chat content
+--   chat_model = { model = Model.GPT_3_5_TURBO_16K, temperature = 1.1 },
+--
+--   -- model used to generate chat topics (topic: ?) header from chat content
+--   chat_topic_gen_model = Model.GPT_3_5_TURBO_16K,
+--
+--   -- command config and templates bellow are used by commands like GpRewrite, GpEnew, etc.
+--   command_model = { model = Model.GPT_3_5_TURBO_16K, temperature = 1.1 },
+--   hooks = CustomFunctions,
+-- }
 
 -- define some shortcuts
 local function define_shortcut()
