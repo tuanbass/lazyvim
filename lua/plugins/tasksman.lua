@@ -59,38 +59,39 @@ local function bind_key(keybinds)
 end
 
 return {
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.qol.todo_items"] = {
-            config = {
-              create_todo_parents = true,
-            },
-          }, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-              default_workspace = "notes",
-            },
-          },
-          ["core.keybinds"] = {
-            config = {
-              default_keybinds = true,
-              hook = bind_key,
-            },
-          },
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.export"] = {}, -- Loads default behaviour
-          ["core.summary"] = {}, -- Loads default behaviour
-        },
-      })
-    end,
-  },
+  -- TODO: Temporary disable neorg
+  -- {
+  --   "nvim-neorg/neorg",
+  --   build = ":Neorg sync-parsers",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("neorg").setup({
+  --       load = {
+  --         ["core.concealer"] = {}, -- Adds pretty icons to your documents
+  --         ["core.qol.todo_items"] = {
+  --           config = {
+  --             create_todo_parents = true,
+  --           },
+  --         }, -- Adds pretty icons to your documents
+  --         ["core.dirman"] = { -- Manages Neorg workspaces
+  --           config = {
+  --             workspaces = {
+  --               notes = "~/notes",
+  --             },
+  --             default_workspace = "notes",
+  --           },
+  --         },
+  --         ["core.keybinds"] = {
+  --           config = {
+  --             default_keybinds = true,
+  --             hook = bind_key,
+  --           },
+  --         },
+  --         ["core.defaults"] = {}, -- Loads default behaviour
+  --         ["core.export"] = {}, -- Loads default behaviour
+  --         ["core.summary"] = {}, -- Loads default behaviour
+  --       },
+  --     })
+  --   end,
+  -- },
 }
