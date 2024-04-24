@@ -42,11 +42,13 @@ return {
       },
       mappings = {
         close = "q",
-        go_in = "L",
-        go_in_plus = "l",
-        go_out = "H",
-        go_out_plus = "h",
-        reset = "<BS>",
+        go_in = "L", -- go in, keep all window open
+        -- go_in_plus = "l", -- go in, then close
+        go_in_plus = "<Enter>", -- go in, then close
+        go_out = "H", -- go out, keep all window open
+        -- go_out_plus = "h", -- go out, then close
+        go_out_plus = "<BS>", -- go out, then close
+        reset = "<F2>",
         reveal_cwd = "@",
         show_help = "g?",
         synchronize = "=",
