@@ -11,3 +11,7 @@
 - for example, lua uses stylua (configured with stylua.toml/.editorconfig) and lua-lang-server (.editorconfig):
   - notes: if we found style.toml, the .editorconfig will be ignored
     stylua ref: <https://github.com/JohnnyMorganz/StyLua>
+
+## Lazy git
+
+- J/K to scroll up and down the main panel(in the right side. DOnt know why it is not in the help page)
