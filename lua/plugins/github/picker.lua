@@ -1,4 +1,4 @@
-local octo_cfg = require("octo.config").defaults
+local octo_cfg = require("octo.config").get_default_values()
 local telescope_conf = require("telescope.config").values
 local actions = require("telescope.actions")
 local pickers = require("telescope.pickers")
@@ -29,9 +29,7 @@ local flatted_mapping = flat(mapping)
 ---@return
 local make_display = function(entry)
   -- print("called make_display", vim.inspect(entry))
-  if not entry then
-    return nil
-  end
+  if not entry then return nil end
 
   local columns = {
     { entry.object.topic, "TelescopeResultsNumber" },

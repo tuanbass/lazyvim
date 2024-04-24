@@ -3,11 +3,8 @@
 return {
   {
     "hrsh7th/cmp-nvim-lua",
-    commit = "f3491638d123cfd2c8048aefaf66d246ff250ca6",
-    -- after = "nvim-cmp",
     dependencies = {
       "hrsh7th/nvim-cmp",
-      -- opts = {},
     },
   },
   {
@@ -29,7 +26,6 @@ return {
   {
     -- autocomplete for command mode and search mode
     "hrsh7th/cmp-cmdline",
-    commit = "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063",
     after = "nvim-cmp",
     config = function(p)
       local cmp = require("cmp")
@@ -87,7 +83,7 @@ return {
   -- },
   -- auto turn off ibus when entering normal mode
   -- Notes: it does not work if manually switch to ibus (vietnamese) in normal mode
-  { "kevinhwang91/nvim-ibus-sw", config = function() require("ibus-sw").setup() end },
+  -- { "kevinhwang91/nvim-ibus-sw", config = function() require("ibus-sw").setup() end },
 
   -- auto change a closed tag when change the open one and vice versa
   { "AndrewRadev/tagalong.vim" },
