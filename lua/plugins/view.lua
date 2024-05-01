@@ -3,6 +3,7 @@ return {
     "TaDaa/vimade",
     config = function(plugin)
       vim.g.vimade = {
+        enablesigns = 0, -- disable signs, workaround for #15
         basegroups = {
           "Folded",
           "Search",
