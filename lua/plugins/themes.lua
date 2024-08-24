@@ -10,8 +10,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "doom-one",
-      -- colorscheme = "sonokai",
-      colorscheme = "edge",
+      colorscheme = "sonokai",
+      -- colorscheme = "edge",
       -- colorscheme = "catppuccin-macchiato", -- themes
     },
   },

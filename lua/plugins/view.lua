@@ -1,30 +1,30 @@
 return {
-  {
-    "TaDaa/vimade",
-    config = function(plugin)
-      vim.g.vimade = {
-        enablesigns = 0, -- disable signs, workaround for #15
-        basegroups = {
-          "Folded",
-          "Search",
-          "SignColumn",
-          -- "LineNr",
-          -- "CursorLine",
-          -- "CursorLineNr",
-          "DiffAdd",
-          "DiffChange",
-          "DiffDelete",
-          "DiffText",
-          "FoldColumn",
-          "Whitespace",
-          "NonText",
-          "SpecialKey",
-          "Conceal",
-          "EndOfBuffer",
-        },
-      }
-    end,
-  },
+  -- {
+  --   "TaDaa/vimade",
+  --   config = function(plugin)
+  --     vim.g.vimade = {
+  --       enablesigns = 0, -- disable signs, workaround for #15
+  --       basegroups = {
+  --         -- "Folded",
+  --         -- "Search",
+  --         -- "SignColumn",
+  --         -- "LineNr",
+  --         -- "CursorLine",
+  --         -- "CursorLineNr",
+  --         -- "DiffAdd",
+  --         -- "DiffChange",
+  --         -- "DiffDelete",
+  --         -- "DiffText",
+  --         -- "FoldColumn",
+  --         -- "Whitespace",
+  --         -- "NonText",
+  --         -- "SpecialKey",
+  --         -- "Conceal",
+  --         "EndOfBuffer",
+  --       },
+  --     }
+  --   end,
+  -- },
   {
     "folke/zen-mode.nvim",
     opts = {

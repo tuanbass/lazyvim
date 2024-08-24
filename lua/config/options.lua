@@ -13,7 +13,7 @@ opt.shortmess = "F"
 vim.g.ufo_fold_level_start = 2 -- start fold level when open new file. Not work yet.
 opt.formatoptions = "jcrql" -- disable comment continuation with "o"
 
-opt.winminwidth = 1 -- required for TaDaa/vimade work properly
+opt.winminwidth = 0 -- required for TaDaa/vimade work properly
 
 -- default tab options, effective only if no .
 opt.tabstop = 2
@@ -24,6 +24,8 @@ opt.expandtab = true
 opt.list = true
 opt.listchars:append("eol:↴")
 opt.listchars:append("tab:>>")
+
+opt.linebreak = true -- whole world wrap
 
 -- search options
 
