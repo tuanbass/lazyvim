@@ -17,6 +17,9 @@ return {
   -- },
   -- enhanced subtitude
   {
+    "h-hg/fcitx.nvim",
+  },
+  {
     "gbprod/substitute.nvim",
     vscode = true,
     priority = 30, -- low priority, it's tricky here to force it load after flash.nvim to ensure the shortcut is not overwrite by flash.nvim
