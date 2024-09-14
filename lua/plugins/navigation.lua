@@ -104,7 +104,7 @@ return {
       { "*", mode = { "n", "x", "o" }, function() require("flash").jump({  pattern = vim.fn.expand("<cword>") }) end, desc = "Flash" }, -- search word under cursor
       { "gw", mode = { "n", "x", "o" }, function() jumpByPattern([[\<]]) end, desc = "JumpWord" },
       { "ga", mode = { "n", "o", "x" }, function() jumpByPattern() end, desc = "JumpChar" },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "SS", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       -- {
       --   -- Show diagnostics at target, without changing cursor position
       --   "<leader>cD", mode = { "n" }, function()
